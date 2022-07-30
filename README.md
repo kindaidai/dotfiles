@@ -14,7 +14,7 @@ $ chezmoi init git@github.com:kindaidai/dotfiles.git
 #### 2. Login to 1password cli
 
 ```sh
-# for fish
+# for fish shell
 $ brew install 1password-cli
 $ eval (op signin --account my.1password.com)
 ```
@@ -25,7 +25,7 @@ $ eval (op signin --account my.1password.com)
 chezmoi apply
 ```
 
-#### 4. set up
+#### 4. setup
 
 ```sh
 $ cd ~/.config/brewfile/
