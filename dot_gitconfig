@@ -1,0 +1,42 @@
+[user]
+  name = Dai Kindaichi
+  email = kindai.0911@gmail.com
+  signingkey = AFF4F3DC462E6A5B
+[core]
+  editor = vim
+  excludesfile = /Users/kindaichidai/.gitignore_global
+  pager = delta
+[alias]
+  co = checkout
+  sw = switch
+  ph = push
+  ec = commit -m 'empty commit' --allow-empty
+  cp = cherry-pick
+[pager]
+  log = delta | less
+  show = delta | less
+  diff = delta | less
+  reflog = delta | less
+[gpg]
+  program = gpg
+[commit]
+  pgpsign = true
+[pull]
+  rebase = true
+# delta https://github.com/dandavison/delta#get-started
+[interactive]
+  diffFilter = delta --color-only
+[init]
+  defaultBranch = main
+[delta]
+  navigate = true  # use n and N to move between diff sections
+  line-numbers = false
+  keep-plus-minus-markers = true
+[merge]
+  conflictstyle = diff3
+[diff]
+  colorMoved = default
+[branch]
+  sort = -authordate
+[sequence]
+	editor = interactive-rebase-tool
