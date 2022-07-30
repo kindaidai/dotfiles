@@ -1,7 +1,7 @@
 [user]
   name = Dai Kindaichi
   email = kindai.0911@gmail.com
-  signingkey = AFF4F3DC462E6A5B
+	signingkey = AFF4F3DC462E6A5B
 [core]
   editor = vim
   excludesfile = /Users/kindaichidai/.gitignore_global
@@ -18,9 +18,9 @@
   diff = delta | less
   reflog = delta | less
 [gpg]
-  program = gpg
+	program = gpg
 [commit]
-  pgpsign = true
+	gpgsign = true
 [pull]
   rebase = true
 # delta https://github.com/dandavison/delta#get-started
@@ -40,3 +40,5 @@
   sort = -authordate
 [sequence]
 	editor = interactive-rebase-tool
+[tag]
+	gpgsign = true
