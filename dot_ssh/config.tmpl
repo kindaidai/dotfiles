@@ -1,0 +1,42 @@
+Host github
+  HostName github.com
+  IdentityFile ~/.ssh/github_rsa
+  User git
+  AddKeysToAgent yes
+  UseKeyChain yes
+{{ if eq .chezmoi.hostname "kindaichidainoMacBook-Air" }}
+Host mhack-bastion
+  HostName 13.113.76.194
+  IdentityFile ~/.ssh/id_rsa_mhack_default
+  User vitaminc
+  Port 22
+  UserKnownHostsFile /dev/null
+  StrictHostKeyChecking no
+  PasswordAuthentication no
+  IdentitiesOnly yes
+  LogLevel FATAL
+Host mhack-app1
+  User vitaminc
+  HostName 10.0.10.162
+  IdentityFile ~/.ssh/id_rsa_mhack_default
+  Port 22
+  ProxyCommand ssh -W %h:%p mhack-bastion
+Host mhack-app2
+  User vitaminc
+  HostName 10.0.20.176
+  IdentityFile ~/.ssh/id_rsa_mhack_default
+  Port 22
+  ProxyCommand ssh -W %h:%p mhack-bastion
+Host mhack-batch
+  User vitaminc
+  HostName 10.0.1.20
+  IdentityFile ~/.ssh/id_rsa_mhack_default
+  Port 22
+  ProxyCommand ssh -W %h:%p mhack-bastion
+Host mhack-stg-app
+  User vitaminc
+  IdentityFile ~/.ssh/id_rsa_mhack_default
+  HostName 10.5.10.10
+  Port 22
+  ProxyCommand ssh -W %h:%p mhack-bastion
+{{ end }}
