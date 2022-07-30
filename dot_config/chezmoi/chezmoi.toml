@@ -1,0 +1,6 @@
+[cd]
+  command = "/opt/homebrew/bin/fish"
+[edit]
+  command = "/opt/homebrew/bin/vim"
+[diff]
+  command = "/opt/homebrew/bin/delta"
