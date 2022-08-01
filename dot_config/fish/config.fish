@@ -1,4 +1,4 @@
-set -g PATH /opt/homebrew/bin /usr/local/bin /usr/sbin /usr/bin $PATH
+set -g PATH /opt/homebrew/bin /usr/local/sbin /usr/local/bin /usr/sbin /usr/bin $PATH
 set -g theme_display_git_master_branch yes
 # ruby version
 set -g theme_display_ruby yes
@@ -16,15 +16,15 @@ function start_agent
     echo "succeeded"
     chmod 600 $SSH_ENV
     . $SSH_ENV > /dev/null
-    ssh-add -K ~/.ssh/github_rsa
-    # ssh-add -K ~/.ssh/id_rsa_mhack_default
+    ssh-add --apple-use-keychain ~/.ssh/github_rsa
+    ssh-add --apple-use-keychain ~/.ssh/id_rsa_mhack_default
 end
 
 function test_identities
     ssh-add -l | grep "The agent has no identities" > /dev/null
     if [ $status -eq 0 ]
-        ssh-add -K ~/.ssh/github_rsa
-        # ssh-add -K ~/.ssh/id_rsa_mhack_default
+        ssh-add --apple-use-keychain ~/.ssh/github_rsa
+        ssh-add --apple-use-keychain ~/.ssh/id_rsa_mhack_default
         if [ $status -eq 2 ]
             start_agent
         end
@@ -47,31 +47,6 @@ else
         start_agent
     end
 end
-
-# anyenv path
-set -x PATH $HOME/.anyenv/bin $PATH
-#eval (anyenv init - | source)
-#bashで実行しようとするため文法エラーになる
-
-#anyenv rbenv
-set -x RBENV_ROOT "$HOME/.anyenv/envs/rbenv"
-set -x PATH $PATH "$RBENV_ROOT/bin"
-set -gx PATH '/Users/kindaichi/.anyenv/envs/rbenv/shims' $PATH
-set -gx RBENV_SHELL fish
-command rbenv rehash 2>/dev/null
-function rbenv
-  set command $argv[1]
-  set -e argv[1]
-
-  switch "$command"
-  case rehash shell
-    rbenv "sh-$command" $argv|source
-  case '*'
-    command rbenv "$command" $argv
-  end
-end
-#see https://patorash.hatenablog.com/entry/2017/09/15/154649
-#source '/Users/kindaichi/.anyenv/envs/rbenv/libexec/../completions/rbenv.fish'
 
 # aws-cli
 # set PATH $HOME/.local/bin $PATH
@@ -141,3 +116,16 @@ zoxide init fish | source
 
 # starship
 starship init fish | source
+
+# rbenv
+set -gx RBENV_ROOT "$HOME/.rbenv"
+set -gx PATH  "$RBENV_ROOT/bin" $PATH
+status --is-interactive; and rbenv init - fish | source
+## for M1 RUBY_CFLAGS=-DUSE_FFI_CLOSURE_ALLOC rbenv install 2.5.3
+## https://secret-garden.hatenablog.com/entry/2021/01/02/220713
+set -gx RUBY_CFLAGS -DUSE_FFI_CLOSURE_ALLOC
+
+# pyenv
+set -gx PYENV_ROOT "$HOME/.pyenv"
+set -gx PATH  "$PYENV_ROOT/bin" $PATH
+status --is-interactive; and pyenv init - fish | source
