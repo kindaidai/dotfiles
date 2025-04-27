@@ -1,2 +1,1 @@
-# anyenv
-eval "$(anyenv init -)"
+source /Users/kindaichidai/.docker/init-bash.sh || true # Added by Docker Desktop

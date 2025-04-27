@@ -47,19 +47,20 @@ else
         start_agent
     end
 end
-
-# aws-cli
-# set PATH $HOME/.local/bin $PATH
+set PATH $HOME/.local/bin $PATH
 
 # for openssl@1.1
 set PATH /opt/homebrew/opt/openssl@1.1/bin $PATH
 
+# for openssl@3
+set PATH /opt/homebrew/opt/openssl@3/bin $PATH
+
 # for mysql
-set PATH /opt/homebrew/opt/mysql@5.7/bin $PATH
+# set PATH /opt/homebrew/opt/mysql@5.7/bin $PATH
 # set -gx PATH '/usr/local/opt/mysql@5.7/bin' $PATH
 
 # for mysql-client
-set PATH /opt/homebrew/opt/mysql-client@5.7/bin $PATH
+# set PATH /opt/homebrew/opt/mysql-client@5.7/bin $PATH
 
 # for imagemagick@6
 set PATH /opt/homebrew/opt/imagemagick@6/bin $PATH
@@ -99,9 +100,6 @@ set -gx HOMEBREW_EDITOR /opt/homebrew/bin/code
 set -gx VOLTA_HOME "$HOME/.volta"
 set -gx PATH "$VOLTA_HOME/bin" $PATH
 
-# tabechoku
-set -gx AWS_PROFILE tabechoku-sso
-
 # Go
 set -gx GOPATH $HOME/go
 set -gx PATH "$GOPATH/bin" $PATH
@@ -129,3 +127,5 @@ set -gx RUBY_CFLAGS -DUSE_FFI_CLOSURE_ALLOC
 set -gx PYENV_ROOT "$HOME/.pyenv"
 set -gx PATH  "$PYENV_ROOT/bin" $PATH
 status --is-interactive; and pyenv init - fish | source
+
+source /Users/kindaichidai/.docker/init-fish.sh || true # Added by Docker Desktop

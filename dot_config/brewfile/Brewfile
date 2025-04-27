@@ -1,136 +1,244 @@
-tap "argon/mas"
-tap "elastic/tap"
-tap "github/gh"
-tap "heroku/brew"
-tap "homebrew/bundle"
-tap "homebrew/cask"
-tap "homebrew/cask-drivers"
-tap "homebrew/cask-fonts"
-tap "homebrew/cask-versions"
-tap "homebrew/core"
-tap "homebrew/services"
-tap "kayac/tap"
-tap "rcmdnk/file"
-tap "thoughtbot/formulae"
-brew "alp"
-brew "anyenv"
-brew "brotli"
-brew "giflib"
-brew "aom"
-brew "ca-certificates"
-brew "gdbm"
-brew "awscli"
-brew "bat"
-brew "berkeley-db", link: true
-brew "freetype"
-brew "fontconfig"
-brew "gettext"
-brew "glib"
-brew "cairo"
-brew "chezmoi"
-brew "deno"
-brew "docker-clean"
-brew "fd"
-brew "fish"
-brew "fribidi"
-brew "fzf"
-brew "gmp"
-brew "gcc"
-brew "gd"
-brew "gdk-pixbuf"
-brew "gh"
-brew "ghq"
-brew "git"
-brew "git-delta"
-brew "git-interactive-rebase-tool"
-brew "libtool"
-brew "gnutls"
-brew "gnupg"
-brew "go"
-brew "gobject-introspection"
-brew "graphite2"
-brew "jasper"
-brew "netpbm"
-brew "gts"
-brew "icu4c"
-brew "harfbuzz"
-brew "libde265"
-brew "shared-mime-info"
-brew "x265"
-brew "libheif"
-brew "liblqr"
-brew "libomp"
-brew "imagemagick"
-brew "imagemagick@6"
-brew "oniguruma"
-brew "jq"
-brew "krb5"
-brew "libfido2"
-brew "pango"
-brew "librsvg"
-brew "libyaml"
-brew "lua"
-brew "mas"
-brew "mysql-client@5.7"
-brew "mysql@5.7", restart_service: true
-brew "node@14"
-brew "percona-toolkit"
-brew "perl"
-brew "pinentry-mac"
-brew "postgresql"
-brew "redis", restart_service: true
-brew "ripgrep"
-brew "ruby"
-brew "starship"
-brew "tig"
-brew "vim"
-brew "volta"
-brew "yarn"
-brew "zoxide"
-brew "elastic/tap/elasticsearch-full"
-brew "heroku/brew/heroku-node"
-brew "heroku/brew/heroku"
-brew "kayac/tap/ecspresso"
-brew "rcmdnk/file/brew-file"
-cask "1password"
-cask "1password-cli"
-cask "alfred"
-cask "authy"
-cask "centered"
-cask "chromedriver"
-cask "deepl"
-cask "discord"
-cask "docker"
-cask "dropbox"
-cask "figma"
-cask "firefox"
-cask "font-hack-nerd-font"
-cask "google-chrome"
-cask "iterm2"
-cask "karabiner-elements"
-cask "keyboard-cleaner"
-cask "kindle"
-cask "meetingbar"
-cask "microsoft-auto-update"
-cask "microsoft-edge"
-cask "multipass"
-cask "ngrok"
-cask "notion"
-cask "postman"
-cask "sequel-pro"
-cask "slack"
-cask "spotify"
-cask "visual-studio-code"
-cask "wd-security"
-cask "zoom"
-mas "1Password for Safari", id: 1569813296
-mas "Bear", id: 1091189122
-mas "Craft", id: 1487937127
-mas "GarageBand", id: 682658836
-mas "Habitify", id: 1111447047
-mas "iMovie", id: 408981434
-mas "Keynote", id: 409183694
-mas "Numbers", id: 409203825
-mas "Pages", id: 409201541
-mas "Todoist", id: 585829637
-mas "Xcode", id: 497799835
+
+# tap repositories and their packages
+
+tap homebrew/bundle
+
+tap homebrew/cask-drivers
+
+tap homebrew/cask-fonts
+
+tap homebrew/cask-versions
+
+tap homebrew/services
+
+tap argon/mas
+brew mas
+
+tap elastic/tap
+brew elasticsearch-full
+
+tap github/gh
+
+tap heroku/brew
+brew heroku
+brew heroku-node
+
+tap kayac/tap
+brew ecspresso
+
+tap rcmdnk/file
+brew brew-file
+
+tap thoughtbot/formulae
+
+# Other Homebrew packages
+brew abseil
+brew alp
+brew aom
+brew autoconf
+brew awscli
+brew bat
+brew bdw-gc
+brew berkeley-db
+brew berkeley-db@5
+brew brotli
+brew c-ares
+brew ca-certificates
+brew cairo
+brew cffi
+brew chezmoi
+brew cryptography
+brew deno
+brew docker-clean
+brew fd
+brew fish
+brew fontconfig
+brew freetype
+brew fribidi
+brew fzf
+brew gcc
+brew gd
+brew gdbm
+brew gdk-pixbuf
+brew gettext
+brew gh
+brew ghostscript
+brew ghq
+brew giflib
+brew git
+brew git-delta
+brew git-interactive-rebase-tool
+brew glib
+brew gmp
+brew gnupg
+brew gnutls
+brew go
+brew gobject-introspection
+brew graphite2
+brew graphviz
+brew gts
+brew guile
+brew harfbuzz
+brew highway
+brew icu4c@77
+brew imagemagick
+brew imagemagick@6
+brew imath
+brew isl
+brew jasper
+brew jbig2dec
+brew jpeg-turbo
+brew jpeg-xl
+brew jq
+brew jsoncpp
+brew krb5
+brew leptonica
+brew libarchive
+brew libassuan
+brew libavif
+brew libb2
+brew libcbor
+brew libde265
+brew libdeflate
+brew libevent
+brew libffi
+brew libfido2
+brew libgcrypt
+brew libgit2
+brew libgpg-error
+brew libheif
+brew libidn
+brew libidn2
+brew libksba
+brew liblqr
+brew libmpc
+brew libnghttp2
+brew libomp
+brew libpng
+brew libraw
+brew librsvg
+brew libsodium
+brew libssh2
+brew libtasn1
+brew libtiff
+brew libtool
+brew libunistring
+brew libusb
+brew libuv
+brew libvmaf
+brew libx11
+brew libxau
+brew libxcb
+brew libxdmcp
+brew libxext
+brew libxrender
+brew libyaml
+brew little-cms2
+brew lua
+brew lz4
+brew lzo
+brew m4
+brew macos-term-size
+brew mpdecimal
+brew mpfr
+brew mysql
+brew mysql-client
+brew mysql-client@5.7
+brew mysql@5.7
+brew ncurses
+brew netpbm
+brew nettle
+brew node@14
+brew npth
+brew oniguruma
+brew openexr
+brew openjpeg
+brew openssl@1.1
+brew openssl@3
+brew p11-kit
+brew pango
+brew pcre2
+brew percona-toolkit
+brew perl
+brew perl-dbd-mysql
+brew pinentry
+brew pinentry-mac
+brew pixman
+brew pkgconf
+brew postgresql@14
+brew protobuf
+brew protobuf@29
+brew pycparser
+brew pyenv
+brew python@3.10
+brew python@3.13
+brew python@3.9
+brew rbenv
+brew readline
+brew redis
+brew ripgrep
+brew ruby
+brew ruby-build
+brew shared-mime-info
+brew sqlite
+brew starship
+brew tesseract
+brew tig
+brew unbound
+brew vim
+brew volta
+brew webp
+brew x265
+brew xorgproto
+brew xz
+brew yarn
+brew zlib
+brew zoxide
+brew zstd
+
+# Other Cask applications
+cask 1password
+cask 1password-cli
+cask authy
+cask chromedriver
+cask deepl
+cask discord
+cask docker
+cask dropbox
+cask figma
+cask firefox
+cask font-hack-nerd-font
+cask google-chrome
+cask iterm2
+cask karabiner-elements
+cask keyboard-cleaner
+cask kindle
+cask kindle-previewer
+cask microsoft-auto-update
+cask microsoft-edge
+cask monitorcontrol
+cask ngrok
+cask notion
+cask postman
+cask protonvpn
+cask rectangle
+cask sequel-ace
+cask session-manager-plugin
+cask slack
+cask spotify
+cask tableplus
+cask visual-studio-code
+cask zoom
+
+# App Store applications
+appstore 1569813296  1Password for Safari  (8.10.58)
+appstore 1091189122  Bear                  (2.3.10)
+appstore 1487937127  Craft                 (3.0.4)
+appstore 682658836   GarageBand            (10.4.11)
+appstore 1111447047  Habitify              (13.2.4)
+appstore 408981434   iMovie                (10.4.3)
+appstore 409183694   Keynote               (14.3)
+appstore 302584613   Kindle                (7.24)
+appstore 409203825   Numbers               (14.3)
+appstore 409201541   Pages                 (14.3)
+appstore 497799835   Xcode                 (16.2)

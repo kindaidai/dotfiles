@@ -40,14 +40,6 @@ $ cd ~/.config/brewfile/
 $ brew file install
 ```
 
-#### anyenv
-
-```sh
-# config.fishの読み込みでこけないようにする
-$ anyenv install --init
-$ anyenv install rbenv
-```
-
 #### vim
 
 https://github.com/Shougo/dein.vim#quick-start
@@ -94,7 +86,7 @@ $ ssh -T github
 Hi kindaidai! You've successfully authenticated, but GitHub does not provide shell access.
 ```
 
-### chezmoi 管理下のファイルに変更があった場合
+### 5. chezmoi 管理下のファイルに変更があった場合
 
 - `chezmoi diff`で変更があるか確認
 
@@ -113,11 +105,25 @@ Hi kindaidai! You've successfully authenticated, but GitHub does not provide she
 - `~/.local/share/chezmoi`以外のファイルを変更した場合
   - 変更内容を chezmoi 管理のファイルに適用する必要がある
   ```sh
-  $ chezmoi add path/to/file
+  $ chezmoi re-add path/to/file
   or
-  $ chezmoi add --template path/to/file
+  $ chezmoi re-add --template path/to/file
   $ chezmoi cd
   $ git add .
   $ git commit -S -m 'hoge'
   $ git push origin main
   ```
+
+#### homebrew の場合
+- brew-file でアプリを管理している
+
+```sh
+$ brew install xxx # or brew uninstall xxxx
+$ brew-file dump
+$ chezmoi re-add ~/.config/brewfile/Brewfile
+```
+
+#### dirごとchezmoiに反映
+```
+$ chezmoi add ~/.ssh/fish
+```

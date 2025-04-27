@@ -4,7 +4,6 @@ Host github
   User git
   AddKeysToAgent yes
   UseKeyChain yes
-{{ if eq .chezmoi.hostname "kindaichidainoMacBook-Air" }}
 Host mhack-bastion
   HostName 13.113.76.194
   IdentityFile ~/.ssh/id_rsa_mhack_default
@@ -39,4 +38,3 @@ Host mhack-stg-app
   HostName 10.5.10.10
   Port 22
   ProxyCommand ssh -W %h:%p mhack-bastion
-{{ end }}
