@@ -2,6 +2,16 @@
 
 chezmoi https://www.chezmoi.io/
 
+## 事前準備
+###  Bacbookの設定
+- VSCode vim の長押しを有効にする
+```shell
+$ defaults write com.microsoft.VSCode ApplePressAndHoldEnabled -bool false         # For VS Code
+$ defaults write com.microsoft.VSCodeInsiders ApplePressAndHoldEnabled -bool false # For VS Code Insider
+```
+- homebrew を入れる
+
+
 ## Get started
 
 ### 1. Clone dotfiles
@@ -17,17 +27,12 @@ $ chezmoi init https://github.com/kindaidai/dotfiles.git
 ```sh
 $ brew install 1password-cli
 # 1Passwordから秘密鍵を取得してくるので、ログインしておく。初回は、secret keyが必要
-# for fish shell
-$ eval (op signin --account my.1password.com)
+$ eval $(op signin --account my.1password.com)
 ```
 
 ### 3. Apply dotfiles
 
 ```sh
-# applyする前にtemplateの分岐を確認する。.chezmoi.hostname "kindaichidainoMacBook-Air" みたいなのがある
-$ chezmoi execute-template '{{ .chezmoi.hostname }}'
-> kindaichidainoMacBook-Air
-# 違う場合は、書き換える
 $ chezmoi apply
 ```
 
@@ -37,7 +42,7 @@ $ chezmoi apply
 
 ```sh
 $ cd ~/.config/brewfile/
-$ brew file install
+$ brew bundle --file ./Brewfile
 ```
 
 #### vim
@@ -46,8 +51,8 @@ https://github.com/Shougo/dein.vim#quick-start
 
 ```sh
 $ cd .vim
-$ curl https://raw.githubusercontent.com/Shougo/dein.vim/master/bin/installer.sh > installer.sh
-$ sh ./installer.sh ./bundles
+# https://github.com/Shougo/dein-installer.vim でインストール方法を確認
+$ sh -c "$(curl -fsSL https://raw.githubusercontent.com/Shougo/dein-installer.vim/master/installer.sh)"
 $ vim #任意のdirで実行し、自動でtomlファイルからプラグインをインポートする
 ```
 
@@ -62,21 +67,29 @@ $ vim #任意のdirで実行し、自動でtomlファイルからプラグイン
 ```sh
 $ cp ~/Downloads/pub.key ~/.ssh/gpg/
 $ cp ~/Downloads/sec.key ~/.ssh/gpg/
+
+# 現在の GPG 設定を確認
+$ git config --global user.signingkey
+# 鍵が存在するか確認
+$ gpg --list-secret-keys --keyid-format LONG
 # for fish shell
 $ brew reinstall pinentry-mac
-$ echo "pinentry-program $(which pinentry-mac)" >> ~/.gnupg/gpg-agent.conf
+# 対象の秘密鍵を再インポート
+$ gpg --import path/to/private-key.asc
+# GPGエージェントが動いているか確認
+$ gpgconf --launch gpg-agent
+# pinentry-mac が入ってないときはインストール
+$ brew install pinentry-mac
+# 設定ファイルを更新
+$ echo "use-agent" >> ~/.gnupg/gpg.conf
+$ echo "pinentry-program /opt/homebrew/bin/pinentry-mac" >> ~/.gnupg/gpg-agent.conf
 $ killall gpg-agent
-# gpgを確認する
-$ gpg --list-secret-keys --keyid-format=long
-$ gpg --armor --export xxxxxxxxxxxxx
-# 必要であれば
-$ git config --global user.signingkey xxxxxxxxxxxxx
+
 # 適当にREADMEを更新して、確認
 $ chezmoi cd
-$ #なんか更新する
+#なんか更新する
 $ git add .
-$ git commit -S -m 'hoge'
-$ git push origin main
+$ git commit -S -m 'hoge' # コミットできればOK
 ```
 
 #### ssh
@@ -115,6 +128,7 @@ Hi kindaidai! You've successfully authenticated, but GitHub does not provide she
   ```
 
 #### homebrew の場合
+
 - brew-file でアプリを管理している
 
 ```sh
@@ -123,7 +137,8 @@ $ brew-file dump
 $ chezmoi re-add ~/.config/brewfile/Brewfile
 ```
 
-#### dirごとchezmoiに反映
+#### dir ごと chezmoi に反映
+
 ```
 $ chezmoi add ~/.ssh/fish
 ```
