@@ -5,3 +5,5 @@
 # curl http://localhost:3000 --cookie-jar cookie | grep csrf
 
 cookie
+
+.claude
