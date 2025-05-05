@@ -1,0 +1,46 @@
+# Required
+[[plugins]]
+repo = 'Shougo/dpp.vim'
+
+[[plugins]]
+repo = 'vim-denops/denops.vim'
+
+[[plugins]]
+repo = 'Shougo/dpp-ext-installer'
+
+[[plugins]]
+repo = 'Shougo/dpp-ext-toml'
+
+[[plugins]] # j,kによる移動を爆速に
+repo = 'rhysd/accelerated-jk'
+
+[[plugins]] # gitの変更点
+repo = 'airblade/vim-gitgutter'
+
+[[plugins]] # ディレクトリをツリー表示
+repo = 'scrooloose/nerdtree'
+
+[[plugins]] # nerdtreeにgitの変更点を表示
+repo = 'Xuyuanp/nerdtree-git-plugin'
+
+[[plugins]] # icon
+repo = 'ryanoasis/vim-devicons'
+
+[[plugins]]
+repo = 'Yggdroot/indentLine'
+
+[[plugins]]
+repo = 'itchyny/lightline.vim'
+
+[[plugins]] # for lightline
+repo = 'tpope/vim-fugitive'
+
+[[plugins]] # for lightline
+repo = 'Shougo/vimfiler'
+
+[[plugins]] # for lightline
+repo = 'Shougo/unite.vim'
+
+[[plugins]] # for ctags
+repo = 'szw/vim-tags'
+EOL < /dev/null

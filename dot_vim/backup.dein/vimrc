@@ -1,55 +1,46 @@
-" vim-plug 設定
-" プラグインのロードをするPLUGINS_START/PLUGINS_ENDセクションを含みます
-call plug#begin('~/.vim/plugged')
+"dein Scripts-----------------------------
+if &compatible
+  set nocompatible               " Be iMproved
+endif
 
-" j,kによる移動を爆速に
-Plug 'rhysd/accelerated-jk'
+" Required:
+set runtimepath+=$HOME/.vim/bundles/repos/github.com/Shougo/dein.vim
 
-" gitの変更点
-Plug 'airblade/vim-gitgutter'
+" Required:
+if dein#load_state($HOME . '/.vim/bundles/')
+  call dein#begin($HOME . '/.vim/bundles/')
+  " プラグインリスト TOMLファイル
+  " あらかじめ用意する
+  let s:toml_dir  = $HOME . '/.vim'
+  let s:toml	  = s:toml_dir . '/dein.toml'
+  let s:lazy_toml = s:toml_dir . '/dein_lazy.toml'
+  " TOMLを読み込み、キャッシュさせる
+  call dein#load_toml(s:toml,      {'lazy': 0})
+  call dein#load_toml(s:lazy_toml, {'lazy': 1})
 
-" ディレクトリをツリー表示
-Plug 'scrooloose/nerdtree'
+  " Let dein manage dein
+  " Required:
+  " call dein#add('/Users/kindaichidai/.vim/bundles/repos/github.com/Shougo/dein.vim')
 
-" nerdtreeにgitの変更点を表示
-Plug 'Xuyuanp/nerdtree-git-plugin'
+  " Add or remove your plugins here like this:
+  "call dein#add('Shougo/neosnippet.vim')
+  "call dein#add('Shougo/neosnippet-snippets')
 
-" icon
-Plug 'ryanoasis/vim-devicons'
+  " Required:
+  call dein#end()
+  call dein#save_state()
+endif
 
-" インデントの可視化
-Plug 'Yggdroot/indentLine'
-
-" ステータスライン
-Plug 'itchyny/lightline.vim'
-
-" gitの統合
-Plug 'tpope/vim-fugitive'
-
-" ファイラー
-Plug 'Shougo/vimfiler'
-
-" filer
-Plug 'Shougo/unite.vim'
-
-" for ctags
-Plug 'szw/vim-tags'
-
-" lazy loadするプラグイン（ファイルタイプに応じて読み込む）
-" Rubyサポート
-Plug 'tpope/vim-endwise', {'for': 'ruby'}
-Plug 'tpope/vim-rails', {'for': 'ruby'}
-
-" Go言語サポート
-Plug 'fatih/vim-go', {'for': 'go'}
-Plug 'SirVer/ultisnips', {'for': 'go'}
-
-" 全てのプラグイン指定が終了したらinitialize
-call plug#end()
-
-" 基本設定
+" Required:
 filetype plugin indent on
 syntax enable
+
+" If you want to install not installed plugins on startup.
+if dein#check_install()
+  call dein#install()
+endif
+
+"End dein Scripts-------------------------
 
 " ----
 " 編集

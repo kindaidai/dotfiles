@@ -47,13 +47,16 @@ $ brew bundle --file ./Brewfile
 
 #### vim
 
-https://github.com/Shougo/dein.vim#quick-start
+https://github.com/junegunn/vim-plug
+
 
 ```sh
 $ cd .vim
-# https://github.com/Shougo/dein-installer.vim でインストール方法を確認
-$ sh -c "$(curl -fsSL https://raw.githubusercontent.com/Shougo/dein-installer.vim/master/installer.sh)"
-$ vim #任意のdirで実行し、自動でtomlファイルからプラグインをインポートする
+# https://github.com/junegunn/vim-plug?tab=readme-ov-file#unix
+$ curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+$ vim #任意のdir
+# vim内で `:PlugInstall` を実行
 ```
 
 #### gpg

@@ -1,0 +1,23 @@
+
+################################################
+# Ruby
+################################################
+[[plugins]] # def end の自動入力
+repo = 'tpope/vim-endwise.git'
+on_ft = 'ruby'
+
+[[plugins]] # Railsプロジェクト用プラグイン
+repo = 'tpope/vim-rails'
+on_ft = 'ruby'
+
+################################################
+# Go
+################################################
+[[plugins]]
+repo = 'fatih/vim-go'
+on_ft = ['go']
+hook_add = ''
+
+[[plugins]]
+repo = 'SirVer/ultisnips'
+on_ft = 'go'
