@@ -102,6 +102,9 @@ $ ssh -T github
 Hi kindaidai! You've successfully authenticated, but GitHub does not provide shell access.
 ```
 
+#### Claude
+- cluade_desktop_config.json は、`~/Library/Application\ Support/Claude/claude_desktop_config.json`に配置しなおす
+
 ### 5. chezmoi 管理下のファイルに変更があった場合
 
 - `chezmoi diff`で変更があるか確認

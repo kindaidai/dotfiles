@@ -1,0 +1,18 @@
+{
+  "mcpServers": {
+    "claude_code": {
+      "command": "/Users/kindaichidai/.volta/bin/claude",
+      "args": ["mcp", "serve"],
+      "env": {}
+    },
+    "filesystem": {
+      "command": "/Users/kindaichidai/.volta/bin/npx",
+      "args": [
+        "-y",
+        "@modelcontextprotocol/server-filesystem",
+        "/Users/kindaichidai/.vim",
+        "/Users/kindaichidai/develop"
+      ]
+    }
+  }
+}
